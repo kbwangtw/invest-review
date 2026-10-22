@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>投資實務 複習卡</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1d1d1b;--muted:#6b6a65;--line:#e3e1da;--accent:#1f4e8c;--accent-soft:#e7eef8;--hot:#b3261e;--hot-soft:#fbeae8;--ok:#1e7a46;--ok-soft:#e5f4ec;--warn:#8a5a00;--warn-soft:#fdf3dc}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151514;--card:#1f1f1d;--ink:#ecebe6;--muted:#a3a29b;--line:#34332f;--accent:#8fb4ea;--accent-soft:#1f2a3a;--hot:#f2a59f;--hot-soft:#3a2120;--ok:#86d1a6;--ok-soft:#1a3326;--warn:#f0c66b;--warn-soft:#3a2f17}}
+:root[data-theme="dark"]{--bg:#151514;--card:#1f1f1d;--ink:#ecebe6;--muted:#a3a29b;--line:#34332f;--accent:#8fb4ea;--accent-soft:#1f2a3a;--hot:#f2a59f;--hot-soft:#3a2120;--ok:#86d1a6;--ok-soft:#1a3326;--warn:#f0c66b;--warn-soft:#3a2f17}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.6rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.92rem}
+.tabs{display:flex;gap:8px;margin-bottom:20px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:2}
+.tabs button{flex:1;padding:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter label{font-size:.9rem;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.card h3{margin:0 0 4px;font-size:1.08rem}
+.meta{font-size:.8rem;color:var(--muted);margin-bottom:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{padding:1px 8px;border-radius:99px;font-size:.75rem;font-weight:600}
+.tag.hot{background:var(--hot-soft);color:var(--hot)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.card ul{margin:6px 0 0;padding-left:1.2em}
+.card li{margin:2px 0}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:8px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft)}
+.note{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--warn-soft);color:var(--warn);font-size:.88rem}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.q p{margin:0 0 10px;font-weight:600}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--hot-soft);border-color:var(--hot);color:var(--hot)}
+.exp{display:none;margin-top:8px;font-size:.92rem;color:var(--muted)}
+.score{font-weight:700;margin-bottom:12px}
+.reset{padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>投資實務｜重點卡與複習題</h1>
+<p class="sub">整理自 2026/9/9～10/21 課堂筆記與投影片（《證券分析》第一章、第三章）。紅色「必考」＝老師或筆記上標註考試重點。</p>
+
+<div class="tabs"><button id="tCards" class="on">重點卡</button><button id="tQuiz">複習題</button></div>
+
+<section id="cards">
+<div class="filter"><label><input type="checkbox" id="onlyHot"> 只看必考</label></div>
+
+<div class="card hot"><h3>系統性風險 vs 非系統性風險</h3>
+<div class="meta">9/11、10/21 <span class="tag hot">必考</span></div>
+<p><b>股票總風險 = 系統性風險 + 非系統性風險</b></p>
+<table><tr><th></th><th>系統性風險（Systematic Risk）</th><th>非系統性風險（個別風險）</th></tr>
+<tr><td>成因</td><td>整體市場／總體經濟的共同因素：Fed 升息、景氣衰退、地緣政治、全球疫情</td><td>特定公司／產業因素：財報造假、高管辭職、產業遭遇技術革命</td></tr>
+<tr><td>能否分散</td><td>不能，買再多檔也躲不掉</td><td>能，持有多元投資組合後趨近於零</td></tr>
+<tr><td>衡量工具</td><td>Beta 值（β）</td><td>無固定指標</td></tr>
+<tr><td>台股例子</td><td>2022 年 Fed 激進升息，幾乎所有台股都下跌</td><td>某科技公司宣布財報造假，股票大跌但大盤不受影響</td></tr></table>
+<ul><li>經典問法：「買的明明是不同產業、不同規模的公司，怎麼會一起跌？」→ 答：系統性風險。</li>
+<li><b>必考圖：</b>縱軸「風險」、橫軸「股票數量」。曲線隨股票數增加而下降（非系統性風險被分散），最後貼近一條水平線＝系統性風險（降不下去）。</li>
+<li>關鍵含義：花大量時間研究個股，只能消除非系統性那一塊 → 所以總體分析很重要。</li></ul></div>
+
+<div class="card hot"><h3>由上而下法 vs 由下而上法</h3>
+<div class="meta">9/18 <span class="tag hot">必考</span></div>
+<ul><li><b>由上而下（Top-Down）＝先看天氣，再決定出門穿什麼</b>：全球總體環境（Fed、景氣）→ 台灣總體（GDP、通膨、匯率、出口）→ 產業篩選 → 個股篩選 → 評價判斷。</li>
+<li><b>由下而上（Bottom-Up）＝先選人才，再看環境</b>：先找優質公司，再回頭確認產業與總體環境。巴菲特找有「護城河（Economic Moat）」的企業，合理價格買進、長期持有。</li></ul>
+<table><tr><th>比較向度</th><th>Top-Down</th><th>Bottom-Up</th></tr>
+<tr><td>分析起點</td><td>全球／國家總體經濟環境</td><td>個別公司競爭優勢與內在價值</td></tr>
+<tr><td>最佳進場時機</td><td>景氣擴張期、多頭格局確立時</td><td>大盤重挫、好公司被錯殺至低估時</td></tr>
+<tr><td>適合對象</td><td>一般投資人、資產配置者</td><td>深度研究型投資人、基本面分析師</td></tr>
+<tr><td>代表人物</td><td>索羅斯（George Soros）</td><td>巴菲特、葛拉漢（Benjamin Graham）</td></tr></table></div>
+
+<div class="card hot"><h3>龐氏騙局：馬多夫（Bernie Madoff）</h3>
+<div class="meta">9/11 <span class="tag hot">期中考簡答題</span></div>
+<ul><li>身分：做市商（Market Maker），曾任 NASDAQ（美國櫃買中心）主席，可信度高。</li>
+<li>手法：資產管理投資基金，宣稱<b>每年穩定 10%～15%</b> 報酬（不可能年年穩賺）；要<b>內部推薦</b>才能加入，營造稀缺感，參與者越來越多。</li>
+<li>話術：「定價偏差套利」＝同價值證券在不同市場價格不同，買低賣高，號稱無風險。</li>
+<li>破綻：有人（筆記記為「小孩」）指出不可能永遠賺；向 SEC（美國證管會）舉報 5 次卻不受理。</li>
+<li>爆發：2008 年雷曼兄弟事件，大量投資人同時贖回才露餡，約 20 年才爆發。</li>
+<li>本質：用新投資人的錢支付舊投資人報酬。</li></ul></div>
+
+<div class="card"><h3>主權基金詐騙：1MDB（劉特佐）</h3>
+<div class="meta">9/18</div>
+<ul><li>馬來西亞人劉特佐，以主權基金名義掏空國庫（筆記記為 75 億美元）。</li>
+<li>主權基金：發行單位＝國家；資金來源＝政府收入（如中東國家的石油收入）。</li>
+<li>以發行債券方式籌資，有擔保債券用石油抵押 → 「沒有國家的錢」。</li></ul>
+<div class="note">⚠ 金額我不確定：常見報導多為「約 45 億美元遭挪用」，筆記的 75 億可能是另一種口徑（例如發債總額），建議對照課本或老師講義。</div></div>
+
+<div class="card"><h3>投資 vs 投機 vs 賭博</h3>
+<div class="meta">9/9、9/30</div>
+<table><tr><th>行為</th><th>時間視野</th><th>決策依據</th><th>核心邏輯</th></tr>
+<tr><td>投資</td><td>長期（月到年）</td><td>企業基本面與內在價值</td><td>合理價格買進值得持有的資產，等待價值實現</td></tr>
+<tr><td>投機</td><td>中短期（天到週）</td><td>價格趨勢與市場情緒</td><td>預測短期走向，從波動中獲利</td></tr>
+<tr><td>賭博</td><td>即時（分鐘到秒）</td><td>運氣或無依據直覺</td><td>零和遊戲，無法累積優勢</td></tr></table>
+<ul><li>彼得·林奇（Peter Lynch）：「投資最危險的事，不是不了解市場，而是以為自己了解市場。」</li>
+<li>你的筆記：投資學是讓自己了解自己可以承擔多少風險。</li></ul></div>
+
+<div class="card"><h3>三種證券分析方法</h3>
+<div class="meta">9/16</div>
+<table><tr><th>方法</th><th>核心問題</th><th>主要工具</th><th>適合誰</th></tr>
+<tr><td>基本分析</td><td>這家公司值多少錢？股價合理嗎？</td><td>財報、GDP、利率、產業分析、評價模型</td><td>長期投資者、機構法人、價值投資者</td></tr>
+<tr><td>技術分析</td><td>現在是買進還是賣出的好時機？</td><td>K 線、均線、RSI、MACD、成交量</td><td>短中期交易者</td></tr>
+<tr><td>量化分析</td><td>有什麼可重複執行的規律可獲利？</td><td>統計模型、機器學習、因子模型</td><td>量化基金、演算法交易者</td></tr></table>
+<ul><li>GDP（Gross Domestic Product）＝<b>國內</b>生產毛額。</li></ul>
+<div class="note">⚠ 筆記寫成「國民生產毛額」，那是 GNP。考試時注意別寫錯。</div></div>
+
+<div class="card"><h3>多頭市場 vs 空頭市場</h3>
+<div class="meta">9/18</div>
+<ul><li>多頭：愈盤愈高（可以買）。</li><li>空頭：愈盤愈低（盡早賣）。</li></ul></div>
+
+<div class="card"><h3>台灣股市三層次結構</h3>
+<div class="meta">9/18、9/23</div>
+<table><tr><th>市場</th><th>上市門檻</th><th>主要特性</th></tr>
+<tr><td>上市（TWSE，台灣證券交易所）</td><td>最嚴格（資本額、獲利要求高）</td><td>流動性最高、大型成熟企業，如台積電、聯發科</td></tr>
+<tr><td>上櫃（TPEx，櫃買中心）</td><td>中等</td><td>中小型、具成長潛力的創新企業；新興產業常由此起步</td></tr>
+<tr><td>興櫃</td><td>較低（掛牌前準備期）</td><td>上市櫃前的暖身市場，採議價及推薦證券商報價制度；流動性低、風險高</td></tr></table>
+<ul><li>台積電在台股加權指數中的比重長期超過 40%。</li>
+<li>OTC（Over-the-Counter）＝櫃檯買賣，議價交易；櫃買中心讓新創科技公司籌措資金。</li>
+<li>櫃買掛牌公司資本額較小、股數少，風險較大，較容易被投信操盤。</li>
+<li>Market Maker（造市商）：證券商向市場報出買賣價。</li></ul></div>
+
+<div class="card"><h3>證券商三種業務、股利</h3>
+<div class="meta">9/23</div>
+<ul><li>證券商：<b>經紀</b>（代客買賣）、<b>自營</b>（自己買賣）、<b>承銷</b>（輔導公司依程序上櫃或上市）。</li>
+<li>股利分為：股票股利、現金股利。</li></ul></div>
+
+<div class="card"><h3>一級市場 vs 二級市場</h3>
+<div class="meta">9/30</div>
+<table><tr><th></th><th>一級市場（發行市場）</th><th>二級市場（交易市場）</th></tr>
+<tr><td>例子</td><td>IPO（首次公開募股）、現金增資</td><td>交易所、OTC 日常買賣</td></tr>
+<tr><td>買賣雙方</td><td>發行單位（企業）vs 投資人</td><td>投資人 vs 投資人</td></tr>
+<tr><td>資金流向</td><td>直接流入發行公司，用來擴展業務</td><td>在投資人之間流轉，公司不直接拿到錢</td></tr>
+<tr><td>功能</td><td>籌資</td><td>提供流動性</td></tr>
+<tr><td>相關詞彙</td><td>開放式基金</td><td>封閉式基金</td></tr></table>
+<ul><li>例：聯發科現金增資 → 投資人付 $ 給聯發科，聯發科發股票給投資人。</li></ul></div>
+
+<div class="card"><h3>債券 vs 股票</h3>
+<div class="meta">9/18、10/2</div>
+<ul><li>債券＝借款憑證＝找人借錢 → 買債券的投資人是<b>債權人</b>。</li>
+<li>股票＝找人投資 → 買股票的人是<b>股東</b>。</li>
+<li>債券種類：政府公債（中央／地方）、金融債、公司債。</li>
+<li>轉換公司債：可依約轉換成股票。</li></ul></div>
+
+<div class="card"><h3>市值與加權指數</h3>
+<div class="meta">10/7</div>
+<ul><li>市值（市場價值）＝股價 × 股數。</li>
+<li>加權指數：依市值加權計算，所以大型股（如台積電）影響最大。</li></ul></div>
+
+<div class="card"><h3>報酬與利率</h3>
+<div class="meta">10/16</div>
+<ul><li><b>實際報酬</b>＝賣價 − 買價 ＋ 股利（已發生）。</li>
+<li><b>期望報酬</b>＝對未來報酬的統計估計（尚未發生）。</li>
+<li><b>名目利率</b>＝掛牌利率；<b>實質利率</b> ≈ 名目利率 − 通膨率。</li></ul></div>
+
+<div class="card"><h3>變異數、標準差、β 值</h3>
+<div class="meta">10/21</div>
+<ul><li>變異數（Variance）＝差異；√變異數 ＝ 標準差（Standard Deviation）＝偏離程度，用來衡量風險／波動。</li>
+<li>市場模型：<b>Rᵢ = α + β·Rₘ</b>（Rᵢ 個股報酬、Rₘ 市場報酬），β 代表個股與大盤的相關程度。</li>
+<li>β = 1.5：大盤漲跌 1%，個股約漲跌 1.5%（比大盤波動大）；β = 0.5：波動較小。</li></ul></div>
+
+<div class="card"><h3>套利實例：華邦轉換公司債</h3>
+<div class="meta">9/11、10/21</div>
+<ul><li>套利：證券<b>價值相同、價格不同</b> → 買便宜的、賣貴的，賺價差。</li>
+<li>筆記例：華邦轉換公司債可轉成股票；華邦甲 22.5、華邦 24 → 買低賣高。</li></ul>
+<div class="note">⚠ 筆記這段不完整（「乙」的價格、張數與操作順序沒寫清楚），建議對照老師板書補齊。</div></div>
+
+<div class="card"><h3>作業：Paper Money 模擬投資</h3>
+<div class="meta">9/9、9/30</div>
+<ul><li>資金 6,000 萬，需記錄：投資標的、投資時間（買／賣）、單價、理由、投資報酬。</li>
+<li>相關主題：投資詐騙（龐氏騙局）、入場時機等。</li></ul></div>
+</section>
+
+<section id="quiz" class="hide">
+<div class="score" id="score"></div>
+<div id="qs"></div>
+<button class="reset" id="reset">重新作答</button>
+</section>
+</div>
+
+<script>
+const Q=[
+["大盤一天跌 5%，你持有的不同產業股票幾乎全跌。主因是？",["非系統性風險","系統性風險","流動性風險","信用風險"],1,"不管買哪家都躲不掉的共同因素，就是系統性風險。"],
+["下列哪一項屬於「非系統性風險」？",["Fed 升息","全球疫情","某公司財報造假","景氣衰退"],2,"財報造假是特定公司事件，可透過分散投資降低。"],
+["「風險 vs 股票數量」圖中，股票數量增加後曲線最終貼近的水平線代表？",["非系統性風險","系統性風險","期望報酬","無風險利率"],1,"分散只能消除非系統性風險，剩下降不下去的是系統性風險。"],
+["衡量系統性風險的常用工具是？",["標準差","變異數","Beta 值（β）","本益比"],2,"β 衡量個股相對大盤的敏感度。"],
+["某股 β = 1.5，大盤上漲 2%，個股約上漲多少？",["1%","2%","3%","1.5%"],2,"1.5 × 2% = 3%。"],
+["「先看天氣，再決定出門穿什麼」比喻的是？",["由下而上法","由上而下法","技術分析","量化分析"],1,"Top-Down 從全球、國家總體環境往下篩選到個股。"],
+["巴菲特尋找具「護城河」的企業，屬於哪種分析路徑？",["由上而下","由下而上","技術分析","量化分析"],1,"Bottom-Up：先選好公司，再看環境。代表人物還有葛拉漢。"],
+["Top-Down 的代表人物是？",["巴菲特","葛拉漢","索羅斯","彼得·林奇"],2,"課本表 1-3：索羅斯（George Soros）。"],
+["由下而上法的最佳進場時機是？",["景氣擴張期","多頭格局確立時","大盤重挫、好公司被錯殺時","IPO 當天"],2,"好公司被錯殺至低估時，正是價值投資者進場點。"],
+["馬多夫的龐氏騙局宣稱的報酬特徵是？",["每年 30% 以上","每年穩定 10%～15%","保本不保息","隨大盤浮動"],1,"報酬「穩定」本身就是警訊——不可能年年穩賺。"],
+["馬多夫騙局在何時因大量贖回而爆發？",["2000 年網路泡沫","2008 年雷曼兄弟事件","2020 年疫情","2022 年 Fed 升息"],1,"2008 金融海嘯時投資人同時贖回，資金缺口才曝光。"],
+["「投資最危險的事，不是不了解市場，而是以為自己了解市場」是誰說的？",["巴菲特","索羅斯","彼得·林奇","葛拉漢"],2,"富達麥哲倫基金傳奇經理人 Peter Lynch。"],
+["以「價格趨勢與市場情緒」為決策依據、時間視野為天到週的行為是？",["投資","投機","賭博","避險"],1,"投機＝預測短期價格走向；投資看基本面與內在價值。"],
+["「這家公司值多少錢？股價合理嗎？」是哪種分析的核心問題？",["基本分析","技術分析","量化分析","籌碼分析"],0,"工具：財報、GDP、利率、產業分析、評價模型。"],
+["GDP 的正確中文是？",["國民生產毛額","國內生產毛額","國民所得","國內需求總額"],1,"GDP＝國內生產毛額；國民生產毛額是 GNP。"],
+["聯發科辦理現金增資，投資人認購，屬於？",["一級市場","二級市場","興櫃市場","期貨市場"],0,"資金直接流入發行公司＝一級（發行）市場。"],
+["二級市場的買賣雙方是？",["發行公司 vs 投資人","投資人 vs 投資人","政府 vs 銀行","承銷商 vs 發行公司"],1,"二級市場提供流動性，資金在投資人之間流轉。"],
+["適合中小型、具成長潛力創新企業的是？",["上市（TWSE）","上櫃（TPEx）","興櫃","集中市場"],1,"上櫃門檻中等，新興產業常由此起步。"],
+["採議價及推薦證券商報價制度、作為上市櫃前暖身的市場是？",["上市","上櫃","興櫃","OTC 債券市場"],2,"興櫃流動性低、風險高。"],
+["證券商「輔導公司依程序上櫃或上市」屬於哪項業務？",["經紀","自營","承銷","造市"],2,"經紀＝代客買賣；自營＝自己買賣；承銷＝輔導發行。"],
+["購買公司債的投資人身分是？",["股東","債權人","董事","承銷商"],1,"債券＝借款憑證；買股票才是股東。"],
+["某公司股價 50 元、流通股數 1 億股，市值為？",["5 千萬","5 億","50 億","500 億"],2,"市值＝股價 × 股數＝50 × 1 億＝50 億。"],
+["名目利率 3%、通膨率 2%，實質利率約為？",["5%","1%","1.5%","6%"],1,"實質利率 ≈ 名目 − 通膨＝1%。"],
+["「賣價 − 買價 ＋ 股利」計算的是？",["期望報酬","實際報酬","名目利率","β 值"],1,"已發生的報酬＝實際報酬；期望報酬是對未來的估計。"],
+["標準差與變異數的關係是？",["標準差＝變異數²","標準差＝√變異數","標準差＝變異數÷2","兩者無關"],1,"√變異數＝標準差，衡量偏離平均的程度。"],
+["「套利」的前提是證券？",["價格相同、價值不同","價值相同、價格不同","價值與價格都相同","只有政府公債可以"],1,"同價值不同價 → 買低賣高。這也是馬多夫的話術。"]
+];
+let done={},right=0;
+const qs=document.getElementById('qs'),sc=document.getElementById('score');
+function render(){qs.innerHTML='';done={};right=0;
+Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';
+d.innerHTML='<p>'+(i+1)+'. '+q[0]+'</p>'+q[1].map((o,j)=>'<button class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+'. '+o+'</button>').join('')+'<div class="exp">'+q[3]+'</div>';qs.appendChild(d)});upd()}
+function upd(){sc.textContent='已作答 '+Object.keys(done).length+' / '+Q.length+'　答對 '+right}
+qs.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;const i=+b.dataset.i,j=+b.dataset.j;if(done[i])return;done[i]=1;
+const box=b.parentElement,ans=Q[i][2];box.querySelectorAll('.opt')[ans].classList.add('right');if(j===ans)right++;else b.classList.add('wrong');box.querySelector('.exp').style.display='block';upd()});
+document.getElementById('reset').onclick=render;
+const tc=document.getElementById('tCards'),tq=document.getElementById('tQuiz'),cs=document.getElementById('cards'),qz=document.getElementById('quiz');
+tc.onclick=()=>{tc.classList.add('on');tq.classList.remove('on');cs.classList.remove('hide');qz.classList.add('hide')};
+tq.onclick=()=>{tq.classList.add('on');tc.classList.remove('on');qz.classList.remove('hide');cs.classList.add('hide')};
+document.getElementById('onlyHot').onchange=e=>{document.querySelectorAll('#cards .card').forEach(c=>{c.style.display=(e.target.checked&&!c.classList.contains('hot'))?'none':''})};
+render();
+</script>
+</body>
+</html>
